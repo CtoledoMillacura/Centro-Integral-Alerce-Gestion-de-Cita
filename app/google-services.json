@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "624265418652",
+    "project_id": "gestioncitasalerce",
+    "storage_bucket": "gestioncitasalerce.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:624265418652:android:6d517bf7b722fe1c0d5a59",
+        "android_client_info": {
+          "package_name": "com.api.centrointegralalerce_gestindecita"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD16al6A6vK7dGc6XbpmRRSss3SuiAyVaY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

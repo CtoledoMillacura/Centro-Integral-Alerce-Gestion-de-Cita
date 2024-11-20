@@ -20,6 +20,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Button verLugaresButton = findViewById(R.id.ver_lugares_button);
+        verLugaresButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Abre la actividad LugaresActivity
+                Intent intent = new Intent(MainActivity.this, LugaresActivity.class);
+                startActivity(intent);
+            }
+        });
+
         // Inicializa FirebaseAuth
         auth = FirebaseAuth.getInstance();
 
@@ -40,5 +50,6 @@ public class MainActivity extends AppCompatActivity {
                 finish();  // Finaliza MainActivity
             }
         });
+
     }
 }

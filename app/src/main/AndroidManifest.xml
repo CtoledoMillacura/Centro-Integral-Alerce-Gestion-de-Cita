@@ -35,6 +35,9 @@
             android:exported="false">
         </activity>
 
+        <activity android:name=".LugaresActivity" android:exported="true" />
+
+
     </application>
 
 </manifest>

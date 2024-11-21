@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp">
+
+    <!-- Imagen del título -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="143dp"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="@string/santo_tomas"
+        android:src="@drawable/santo_tomas_logo" />
+
+    <!-- Tarjeta para los campos -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="329dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- Campo de correo -->
+            <EditText
+                android:id="@+id/login_email"
+                style="@style/EditTextView"
+                android:layout_marginBottom="16dp"
+                android:drawableLeft="@drawable/baseline_person_24"
+                android:hint="Correo Electrónico"
+                android:textColor="@color/black" />
+
+            <!-- Campo de contraseña -->
+            <EditText
+                android:id="@+id/login_password"
+                style="@style/EditTextView"
+                android:layout_marginBottom="16dp"
+                android:drawableStart="@drawable/baseline_lock_person_24"
+                android:hint="Contraseña"
+                android:textColor="@color/black" />
+
+            <!-- Botón de inicio de sesión -->
+            <Button
+                android:id="@+id/login_button"
+                style="@style/ButtonStyle"
+                android:layout_marginBottom="16dp"
+                android:text="Iniciar Sesión" />
+
+            <!-- Redirección al registro -->
+            <TextView
+                android:id="@+id/signupRedirectText"
+                style="@style/LoginRedirectText"
+                android:layout_gravity="center"
+                android:layout_marginBottom="8dp"
+                android:text="¿No tienes cuenta? Regístrate" />
+
+            <!-- Redirección a recuperación de contraseña -->
+            <TextView
+                android:id="@+id/forgotPasswordText"
+                style="@style/LoginRedirectText"
+                android:layout_width="247dp"
+                android:layout_gravity="center"
+
+                android:layout_marginBottom="8dp"
+                android:text="@string/olvidaste_tu_contrase_a" />
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="main" type="id" />
+    <item name="btn_settings" type="id" />
+    <item name="btn_calendar" type="id" />
+    <item name="btn_activities" type="id" />
+    <item name="bottom_buttons" type="id" />
+    <item name="btn_mon" type="id" />
+    <item name="activities_container" type="id" />
+    <item name="btn_sun" type="id" />
+    <item name="btn_sat" type="id" />
+    <item name="btn_fri" type="id" />
+    <item name="btn_thu" type="id" />
+    <item name="btn_wed" type="id" />
+    <item name="btn_tue" type="id" />
+</resources>

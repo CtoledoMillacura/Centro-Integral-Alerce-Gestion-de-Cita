@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "624265418652",
+    "firebase_url": "https://gestioncitasalerce-default-rtdb.firebaseio.com",
+    "project_id": "gestioncitasalerce",
+    "storage_bucket": "gestioncitasalerce.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:624265418652:android:f7ade7be31f2f2640d5a59",
+        "android_client_info": {
+          "package_name": "com.santotomas.centrointegralalerce_gestindecitas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD16al6A6vK7dGc6XbpmRRSss3SuiAyVaY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

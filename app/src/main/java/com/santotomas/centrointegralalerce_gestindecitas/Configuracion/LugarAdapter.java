@@ -1,21 +1,25 @@
 package com.santotomas.centrointegralalerce_gestindecitas.Configuracion;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.santotomas.centrointegralalerce_gestindecitas.Model.Lugar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.core.Context;
+import com.santotomas.centrointegralalerce_gestindecitas.Actividad.ActividadActivity;
+import com.santotomas.centrointegralalerce_gestindecitas.Model.Lugar;
 import com.santotomas.centrointegralalerce_gestindecitas.R;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
@@ -52,16 +56,34 @@ public class LugarAdapter extends RecyclerView.Adapter<LugarAdapter.LugarViewHol
             mostrarDialogoEditarLugar(lugar);
         });
 
-        // Botón de eliminar
+        // Botón de eliminar con confirmación
         holder.eliminarButton.setOnClickListener(view -> {
-            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("lugares");
-            databaseReference.child(lugar.getId()).removeValue().addOnCompleteListener(task -> {
-                if (task.isSuccessful()) {
-                    Toast.makeText(context, "Lugar eliminado", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(context, "Error al eliminar", Toast.LENGTH_SHORT).show();
-                }
-            });
+            // Crear el cuadro de diálogo de confirmación
+            new AlertDialog.Builder(context)
+                    .setTitle("Confirmar Eliminación")
+                    .setMessage("¿Estás seguro de que deseas eliminar este lugar?")
+                    .setPositiveButton("Sí", (dialog, which) -> {
+                        // Si el usuario confirma, eliminar el lugar
+                        eliminarLugar(lugar);
+                    })
+                    .setNegativeButton("No", (dialog, which) -> {
+                        // Si el usuario cancela, cerrar el cuadro de diálogo
+                        dialog.dismiss();
+                    })
+                    .create()
+                    .show();
+        });
+    }
+
+    // Método para eliminar el lugar
+    private void eliminarLugar(Lugar lugar) {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("lugares");
+        databaseReference.child(lugar.getId()).removeValue().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Toast.makeText(context, "Lugar eliminado", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(context, "Error al eliminar", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 
@@ -115,7 +137,6 @@ public class LugarAdapter extends RecyclerView.Adapter<LugarAdapter.LugarViewHol
         builder.create().show();
     }
 
-
     @Override
     public int getItemCount() {
         return lugarList.size();
@@ -131,6 +152,23 @@ public class LugarAdapter extends RecyclerView.Adapter<LugarAdapter.LugarViewHol
             cupo = itemView.findViewById(R.id.lugar_cupo);
             editarButton = itemView.findViewById(R.id.editar_button);
             eliminarButton = itemView.findViewById(R.id.eliminar_button);
+        }
+    }
+
+    public static class MainActivity extends AppCompatActivity {
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+
+            // Botones inferiores
+            ImageButton btnActivities = findViewById(R.id.btn_activities);
+            ImageButton btnSettings = findViewById(R.id.btn_settings);
+
+            // Acción para los botones inferiores
+            btnActivities.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ActividadActivity.class)));
+            btnSettings.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, SettingsActivity.class)));
         }
     }
 }

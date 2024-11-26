@@ -4,45 +4,145 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingsActivity">
+    tools:context=".Configuracion.SettingsActivity">
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Administración - Mantenedores"
+        android:textSize="20sp"
+        android:textColor="#11452C"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"/>
+    <!-- Botón para navegar a OferentesActivity -->
+    <Button
+        android:id="@+id/btn_oferentes"
+        android:text="Oferentes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/btn_tipo_actividad"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#11452C" />
+
 
     <!-- Botón para navegar a LugaresActivity -->
     <Button
         android:id="@+id/btn_lugares"
         android:text="Lugares"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titulo"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="100dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#11452C" />
 
     <!-- Botón para navegar a ProyectosActivity -->
     <Button
         android:id="@+id/btn_proyectos"
         android:text="Proyectos"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/btn_lugares"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="20dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#11452C" />
 
     <!-- Botón para navegar a SociosComunitariosActivity -->
     <Button
         android:id="@+id/btn_socios_comunitarios"
         android:text="Socios Comunitarios"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/btn_proyectos"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="20dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#11452C" />
 
     <!-- Botón para navegar a TipoDeActividadActivity -->
     <Button
         android:id="@+id/btn_tipo_actividad"
         android:text="Tipo de Actividad"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/btn_socios_comunitarios"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="20dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#11452C" />
+
+    <!-- Botón para Salir -->
+
+    <Button
+        android:id="@+id/btn_salir"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="232dp"
+        android:text="Cerrar Sesiòn"
+        android:textColor="@android:color/white"
+        app:backgroundTint="@color/slateblue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_tipo_actividad" />
+
+    <LinearLayout
+        android:id="@+id/bottom_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_layout"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <ImageButton
+            android:id="@+id/btn_actividades"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:contentDescription="@string/actividades"
+            android:scaleType="centerInside"
+            android:src="@drawable/actividad" />
+
+        <ImageButton
+            android:id="@+id/btn_calendario"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:contentDescription="@string/calendario"
+            android:scaleType="centerInside"
+            android:src="@drawable/calendario" />
+
+        <ImageButton
+            android:id="@+id/btn_configuracion"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:contentDescription="@string/configuracion"
+            android:scaleType="centerInside"
+            android:src="@drawable/configuracion" />
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

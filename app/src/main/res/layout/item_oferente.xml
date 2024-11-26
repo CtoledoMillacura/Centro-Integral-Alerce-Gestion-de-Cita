@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:gravity="center_vertical">
+
+    <!-- Contenedor de los textos -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_marginEnd="16dp">
+
+        <!-- Nombre del Oferente -->
+        <TextView
+            android:textColor="@color/slateblue"
+            android:id="@+id/oferente_nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp"/>
+
+        <!-- Docente Responsable -->
+        <TextView
+            android:id="@+id/oferente_docente_responsable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Docente Responsable"
+            android:textSize="14sp"
+            android:layout_marginBottom="4dp"/>
+
+        <!-- Carrera -->
+        <TextView
+            android:textColor="@color/slateblue"
+            android:id="@+id/oferente_carrera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Carrera"
+            android:textSize="14sp"/>
+    </LinearLayout>
+
+    <!-- Botones de Editar y Eliminar -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:paddingTop="8dp">
+
+        <Button
+            android:textColor="@color/white"
+            android:backgroundTint="@color/slateblue"
+            android:id="@+id/btn_editar_oferente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Editar"
+            android:textSize="12sp"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:textColor="@color/white"
+            android:backgroundTint="@color/slateblue"
+            android:id="@+id/btn_eliminar_oferente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Eliminar"
+            android:textSize="12sp"/>
+    </LinearLayout>
+</LinearLayout>

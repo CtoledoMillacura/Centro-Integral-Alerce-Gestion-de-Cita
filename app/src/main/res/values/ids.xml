@@ -13,4 +13,44 @@
     <item name="btn_thu" type="id" />
     <item name="btn_wed" type="id" />
     <item name="btn_tue" type="id" />
+    <item name="spinnerProyecto" type="id" />
+    <item name="spinnerSocioComunitario" type="id" />
+    <item name="spinnerOferente" type="id" />
+    <item name="spinnerLugar" type="id" />
+    <item name="spinnerTipoActividad" type="id" />
+    <item name="edtDiasAvisoPrevio" type="id" />
+    <item name="edtCupo" type="id" />
+    <item name="edtFechaHora" type="id" />
+    <item name="edtNombre" type="id" />
+    <item name="spLugar" type="id" />
+    <item name="spOferentes" type="id" />
+    <item name="spBeneficiario" type="id" />
+    <item name="btnGuardar" type="id" />
+    <item name="etFechasYHoras" type="id" />
+    <item name="etPeriodicidad" type="id" />
+    <item name="etTipoActividad" type="id" />
+    <item name="etNombre" type="id" />
+    <item name="spTipoActividad" type="id" />
+    <item name="tvNombre" type="id" />
+    <item name="tvTitulo" type="id" />
+    <item name="etHora" type="id" />
+    <item name="etFecha" type="id" />
+    <item name="edtIdSocioComunitario" type="id" />
+    <item name="edtIdTipoActividad" type="id" />
+    <item name="edtIdProyecto" type="id" />
+    <item name="edtIdOferente" type="id" />
+    <item name="edtHora" type="id" />
+    <item name="edtIdLugar" type="id" />
+    <item name="edtFecha" type="id" />
+    <item name="edtPeriodicidad" type="id" />
+    <item name="buttonEditar" type="id" />
+    <item name="buttonEliminar" type="id" />
+    <item name="textViewTipoActividad" type="id" />
+    <item name="textViewSocioComunitario" type="id" />
+    <item name="textViewProyecto" type="id" />
+    <item name="textViewOferente" type="id" />
+    <item name="textViewLugar" type="id" />
+    <item name="textViewHora" type="id" />
+    <item name="textViewFecha" type="id" />
+    <item name="textViewNombre" type="id" />
 </resources>

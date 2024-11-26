@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Campo de texto para el nombre del oferente -->
+    <EditText
+        android:id="@+id/input_nombre_oferente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre del Oferente"
+        android:inputType="text" />
+
+    <!-- Campo de texto para el docente responsable -->
+    <EditText
+        android:id="@+id/input_docente_responsable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Docente Responsable"
+        android:inputType="text" />
+
+    <!-- Campo de texto para la carrera -->
+    <EditText
+        android:id="@+id/input_carrera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Carrera"
+        android:inputType="text" />
+
+</LinearLayout>

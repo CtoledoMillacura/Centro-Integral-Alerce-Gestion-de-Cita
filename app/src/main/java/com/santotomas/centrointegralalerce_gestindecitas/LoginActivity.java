@@ -28,6 +28,16 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Verificar si el usuario ya ha iniciado sesión
+        SharedPreferences preferences = getSharedPreferences("UserSession", MODE_PRIVATE);
+        boolean isLoggedIn = preferences.getBoolean("isLoggedIn", false);
+
+        if (isLoggedIn) {
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            finish();
+        }
+
         setContentView(R.layout.activity_login);
 
         // Inicializar componentes

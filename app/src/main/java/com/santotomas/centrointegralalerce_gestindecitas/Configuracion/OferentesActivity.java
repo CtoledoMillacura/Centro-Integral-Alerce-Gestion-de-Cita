@@ -18,47 +18,48 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.santotomas.centrointegralalerce_gestindecitas.Model.Proyecto;
+import com.santotomas.centrointegralalerce_gestindecitas.Model.Oferente;
 import com.santotomas.centrointegralalerce_gestindecitas.R;
 
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class ProyectosActivity extends AppCompatActivity {
+public class OferentesActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private ProyectosAdapter adapter;
-    private ArrayList<Proyecto> listaProyectos;
+    private OferentesAdapter adapter;
+    private ArrayList<Oferente> listaOferentes;
     private FloatingActionButton fabCrear;
     private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_proyectos);
+        setContentView(R.layout.activity_oferentes);
 
-        recyclerView = findViewById(R.id.recycler_proyectos);
-        fabCrear = findViewById(R.id.fab_crear_proyecto);
+        recyclerView = findViewById(R.id.recycler_oferentes);
+        fabCrear = findViewById(R.id.fab_crear_oferente);
 
-        listaProyectos = new ArrayList<>();
-        adapter = new ProyectosAdapter(listaProyectos, this);
+        listaOferentes = new ArrayList<>();
+        adapter = new OferentesAdapter(listaOferentes, this);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("proyectos");
+        // Inicializamos la referencia de la base de datos
+        databaseReference = FirebaseDatabase.getInstance().getReference("oferentes");
 
         // Agregar el listener para escuchar cambios en tiempo real
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // Limpiar la lista antes de agregar los nuevos datos
-                listaProyectos.clear();
+                listaOferentes.clear();
 
                 // Recorrer los datos obtenidos de Firebase
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Proyecto proyecto = snapshot.getValue(Proyecto.class);
-                    listaProyectos.add(proyecto);
+                    Oferente oferente = snapshot.getValue(Oferente.class);
+                    listaOferentes.add(oferente);
                 }
 
                 // Notificar al adaptador que los datos han cambiado
@@ -68,38 +69,43 @@ public class ProyectosActivity extends AppCompatActivity {
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 // Manejar errores
-                Toast.makeText(ProyectosActivity.this, "Error al cargar los proyectos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(OferentesActivity.this, "Error al cargar los oferentes", Toast.LENGTH_SHORT).show();
             }
         });
 
-        // Evento para crear un nuevo proyecto
+        // Evento para crear un nuevo oferente
         fabCrear.setOnClickListener(view -> mostrarDialogoCrear());
     }
 
     private void mostrarDialogoCrear() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        View view = LayoutInflater.from(this).inflate(R.layout.dialog_crear_proyecto, null);
+        View view = LayoutInflater.from(this).inflate(R.layout.dialog_crear_oferente, null);
         builder.setView(view);
 
-        EditText inputNombre = view.findViewById(R.id.input_nombre_proyecto);
+        EditText inputNombre = view.findViewById(R.id.input_nombre_oferente);
+        EditText inputDocenteResponsable = view.findViewById(R.id.input_docente_responsable);
+        EditText inputCarrera = view.findViewById(R.id.input_carrera);
 
         builder.setPositiveButton("Crear", (dialogInterface, i) -> {
             String nombre = inputNombre.getText().toString().trim();
-            if (TextUtils.isEmpty(nombre)) {
-                Toast.makeText(this, "El nombre no puede estar vacío", Toast.LENGTH_SHORT).show();
+            String docenteResponsable = inputDocenteResponsable.getText().toString().trim();
+            String carrera = inputCarrera.getText().toString().trim();
+
+            if (TextUtils.isEmpty(nombre) || TextUtils.isEmpty(docenteResponsable) || TextUtils.isEmpty(carrera)) {
+                Toast.makeText(this, "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show();
                 return;
             }
 
             String id = UUID.randomUUID().toString();
-            Proyecto proyecto = new Proyecto(id, nombre);
+            Oferente oferente = new Oferente(id, nombre, docenteResponsable, carrera);
 
             // Guardar en Firebase Realtime Database
-            databaseReference.child(id).setValue(proyecto)
+            databaseReference.child(id).setValue(oferente)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
-                            Toast.makeText(this, "Proyecto creado", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, "Oferente creado", Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(this, "Error al crear el proyecto", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, "Error al crear el oferente", Toast.LENGTH_SHORT).show();
                         }
                     });
         });
@@ -108,30 +114,40 @@ public class ProyectosActivity extends AppCompatActivity {
         builder.create().show();
     }
 
-    public void editarProyecto(Proyecto proyecto) {
+    public void editarOferente(Oferente oferente) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        View view = LayoutInflater.from(this).inflate(R.layout.dialog_crear_proyecto, null);
+        View view = LayoutInflater.from(this).inflate(R.layout.dialog_crear_oferente, null);
         builder.setView(view);
 
-        EditText inputNombre = view.findViewById(R.id.input_nombre_proyecto);
-        inputNombre.setText(proyecto.getNombre());
+        EditText inputNombre = view.findViewById(R.id.input_nombre_oferente);
+        EditText inputDocenteResponsable = view.findViewById(R.id.input_docente_responsable);
+        EditText inputCarrera = view.findViewById(R.id.input_carrera);
+
+        inputNombre.setText(oferente.getNombre());
+        inputDocenteResponsable.setText(oferente.getDocenteResponsable());
+        inputCarrera.setText(oferente.getCarrera());
 
         builder.setPositiveButton("Guardar", (dialogInterface, i) -> {
             String nombre = inputNombre.getText().toString().trim();
-            if (TextUtils.isEmpty(nombre)) {
-                Toast.makeText(this, "El nombre no puede estar vacío", Toast.LENGTH_SHORT).show();
+            String docenteResponsable = inputDocenteResponsable.getText().toString().trim();
+            String carrera = inputCarrera.getText().toString().trim();
+
+            if (TextUtils.isEmpty(nombre) || TextUtils.isEmpty(docenteResponsable) || TextUtils.isEmpty(carrera)) {
+                Toast.makeText(this, "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            proyecto.setNombre(nombre);
+            oferente.setNombre(nombre);
+            oferente.setDocenteResponsable(docenteResponsable);
+            oferente.setCarrera(carrera);
 
             // Actualizar en Firebase
-            databaseReference.child(proyecto.getId()).setValue(proyecto)
+            databaseReference.child(oferente.getId()).setValue(oferente)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
-                            Toast.makeText(this, "Proyecto actualizado", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, "Oferente actualizado", Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(this, "Error al actualizar el proyecto", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, "Error al actualizar el oferente", Toast.LENGTH_SHORT).show();
                         }
                     });
         });
@@ -140,17 +156,17 @@ public class ProyectosActivity extends AppCompatActivity {
         builder.create().show();
     }
 
-    public void eliminarProyecto(Proyecto proyecto) {
+    public void eliminarOferente(Oferente oferente) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("¿Estás seguro de que deseas eliminar este proyecto?")
+        builder.setMessage("¿Estás seguro de que deseas eliminar este oferente?")
                 .setPositiveButton("Sí", (dialogInterface, i) -> {
                     // Eliminar de Firebase
-                    databaseReference.child(proyecto.getId()).removeValue()
+                    databaseReference.child(oferente.getId()).removeValue()
                             .addOnCompleteListener(task -> {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(this, "Proyecto eliminado", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(this, "Oferente eliminado", Toast.LENGTH_SHORT).show();
                                 } else {
-                                    Toast.makeText(this, "Error al eliminar el proyecto", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(this, "Error al eliminar el oferente", Toast.LENGTH_SHORT).show();
                                 }
                             });
                 })

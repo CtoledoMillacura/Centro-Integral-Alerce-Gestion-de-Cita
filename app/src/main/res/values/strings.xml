@@ -12,4 +12,10 @@
     <string name="olvidaste_tu_contrase_a">¿Olvidaste tu contraseña?</string>
     <string name="cerrar_sesi_n">Cerrar Sesión</string>
     <string name="configuraci_n">Configuración</string>
+    <string name="crear_tipo_actividad" />
+    <string name="configuracion" />
+    <string name="calendario" />
+    <string name="actividades" />
+    <string name="eliminar_actividad" />
+    <string name="editar_actividad" />
 </resources>

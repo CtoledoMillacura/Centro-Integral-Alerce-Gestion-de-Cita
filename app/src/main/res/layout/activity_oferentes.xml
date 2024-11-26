@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Título encima de la lista -->
+    <TextView
+        android:id="@+id/titulo_oferentes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Lista de Oferentes"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp" />
+
+    <!-- RecyclerView para listar los proyectos -->
+
+    <!-- Botón flotante para crear un nuevo proyecto -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_oferentes"
+        android:layout_width="match_parent"
+        android:layout_height="634dp"
+        android:layout_above="@+id/fab_crear_oferente"
+        android:layout_below="@id/titulo_proyectos"
+        android:layout_marginBottom="-30dp"
+        tools:ignore="NotSibling" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_crear_oferente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        app:backgroundTint="@color/slateblue"
+        app:tint="@color/white"
+        android:layout_margin="16dp"
+        android:contentDescription="Crear Proyecto"
+        android:src="@drawable/ic_add" />
+</RelativeLayout>

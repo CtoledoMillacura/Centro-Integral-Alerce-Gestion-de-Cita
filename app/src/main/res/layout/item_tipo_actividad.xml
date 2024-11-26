@@ -5,53 +5,53 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="8dp"
-    android:background="@color/white">
+    android:background="@android:color/white">
 
-    <!-- Nombre del Lugar -->
+    <!-- Nombre del Tipo de Actividad -->
     <TextView
-        android:id="@+id/lugar_nombre"
+        android:id="@+id/tipo_actividad_nombre"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Nombre del Lugar"
+        android:text="Nombre del Tipo de Actividad"
         android:textSize="16sp"
-        android:textColor="@color/slateblue"
+        android:textColor="#11452C"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/editar_button"
+        app:layout_constraintEnd_toStartOf="@+id/btn_editar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Cupo del Lugar -->
+    <!-- Descripción del Tipo de Actividad -->
     <TextView
-        android:id="@+id/lugar_cupo"
+        android:id="@+id/tipo_actividad_descripcion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Cupo: Opcional"
+        android:text="Descripción: Opcional"
         android:textSize="14sp"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toStartOf="@+id/editar_button"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toStartOf="@+id/btn_editar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lugar_nombre" />
+        app:layout_constraintTop_toBottomOf="@id/tipo_actividad_nombre" />
 
     <!-- Botón Editar -->
     <Button
-        android:id="@+id/editar_button"
+        android:id="@+id/btn_editar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Editar"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/slateblue"
-        app:layout_constraintEnd_toStartOf="@+id/eliminar_button"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#11452C"
+        app:layout_constraintEnd_toStartOf="@+id/btn_eliminar"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <!-- Botón Eliminar -->
     <Button
-        android:id="@+id/eliminar_button"
+        android:id="@+id/btn_eliminar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Eliminar"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/slateblue"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#11452C"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />

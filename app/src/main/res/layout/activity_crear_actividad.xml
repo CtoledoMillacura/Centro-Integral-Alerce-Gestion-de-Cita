@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Nombre -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre" />
+    <EditText
+        android:id="@+id/editTextNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese el nombre de la actividad" />
+
+    <!-- Periodicidad -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Periodicidad" />
+    <EditText
+        android:id="@+id/editTextPeriodicidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese la periodicidad" />
+
+    <!-- Fecha -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha" />
+    <EditText
+        android:id="@+id/editTextFecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Seleccione la fecha"
+        android:focusable="false"
+        android:clickable="true" />
+
+
+    <!-- Hora -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hora" />
+    <EditText
+        android:id="@+id/editTextHora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Hora (HH:mm)"
+        android:inputType="time"
+        android:maxLines="1"
+        android:digits="0123456789:"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/editTextFecha"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <!-- Lugar (Spinner) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lugar" />
+    <Spinner
+        android:id="@+id/spinnerLugar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- Oferente (Spinner) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Oferente" />
+    <Spinner
+        android:id="@+id/spinnerOferente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- Proyecto (Spinner) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Proyecto" />
+    <Spinner
+        android:id="@+id/spinnerProyecto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- Socio Comunitario (Spinner) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Socio Comunitario" />
+    <Spinner
+        android:id="@+id/spinnerSocioComunitario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- Tipo de Actividad (Spinner) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tipo de Actividad" />
+    <Spinner
+        android:id="@+id/spinnerTipoActividad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- Botón para guardar -->
+    <Button
+        android:textColor="@color/white"
+        android:backgroundTint="@color/slateblue"
+        android:id="@+id/btnGuardar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Guardar" />
+</LinearLayout>

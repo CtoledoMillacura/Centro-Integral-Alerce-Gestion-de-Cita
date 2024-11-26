@@ -6,9 +6,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logosantotomas"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logosantotomas"
         android:supportsRtl="true"
         android:theme="@style/Theme.CentroIntegralAlerceGestiónDeCitas"
         tools:targetApi="31">
@@ -27,24 +27,22 @@
             android:exported="true" />
 
         <activity
-            android:name=".MainActivity"
-            android:exported="false" />
+            android:name=".Configuracion.LugarAdapter$MainActivity"
+            android:exported="true" />
 
-        <!-- Nueva actividad de recuperación de contraseña -->
         <activity
             android:name=".ForgotPasswordActivity"
             android:exported="true" />
 
-        <!-- Nuevas actividades -->
+
         <activity
-            android:name=".Activities.ActivitiesActivity"
+            android:name=".MainActivity"
             android:exported="true" />
 
         <activity
             android:name=".Configuracion.SettingsActivity"
             android:exported="true" />
 
-        <!-- Actividades de configuración -->
         <activity
             android:name=".Configuracion.LugaresActivity"
             android:exported="true" />
@@ -54,11 +52,22 @@
             android:exported="true" />
 
         <activity
-            android:name=".Configuracion.SociosComunitariosActivity"
+            android:name=".Actividad.ActividadActivity"
             android:exported="true" />
 
         <activity
-            android:name=".Configuracion.TiposDeActividadActivity"
+            android:name=".CrearActividadActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".Configuracion.SociosComunitariosActivity"
+            android:exported="true" />
+
+        <activity android:name=".Configuracion.OferentesActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".Configuracion.TiposActividadActivity"
             android:exported="true" />
 
     </application>
